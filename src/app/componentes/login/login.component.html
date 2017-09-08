@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Login form using HTML5 and CSS3</title>
+
+      <!-- <link rel="stylesheet" href="css/style.css"> -->
+</head>
+
+<body bgcolor="#e0dddd">
+<div class="container">
+	<section id="content">
+		<form action="">
+			<h1>Login Form</h1>
+			{{usuario}}
+			
+			<div>
+  				<input type="text"  name="usuario" [(ngModel)]="Usuario" />
+			</div>
+			<div>
+				<input type="password" placeholder="Password" required="" name="password" [(ngModel)]="Pass" />
+			</div>
+			<div>
+				<a href="#">Lost your password?</a>
+				<button class="btn btn-success" (click)="Entrar()">Entrar</button> <!--chequeo con el f12, en la consola!-->
+				<a href="#">Register</a>
+			</div>
+			<h1 [hidden]="!ingreso"> Ingreso Exitosamente</h1>
+			<h1 [hidden]="ingreso"> no Logueado</h1>
+		</form><!-- form -->
+
+	</section><!-- content -->
+</div><!-- container -->
+
+
+
+</body>
+</html>

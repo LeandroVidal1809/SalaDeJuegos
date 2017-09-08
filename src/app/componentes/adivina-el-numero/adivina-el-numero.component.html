@@ -1,0 +1,32 @@
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-4">
+            <br><br><br>
+            <!-- <h1> {{miJuego.Nombre}}</h1> -->
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+          <br><br><br><br>
+          <br>
+            <div [hidden]="miJuego.NumeroGenerador">
+             <button class= "btn btn-success" (click)="miJuego.GenerarNuevo()">Nuevo</button> 
+                    
+            </div>
+            <div  [hidden]="!miJuego.NumeroGenerador">   
+                    <button class= "btn btn-success" (click)="miJuego.Verificar()">Verificar</button>  
+                    <input type="text"  name="NumIngresado" [(ngModel)]="miJuego.NumeroIngresado" />  
+               
+                    
+             </div>
+      </div>
+      <div class="col-xs-4 col-md-4 text-right">
+            <br><br><br>
+            <h3  [hidden]="!miJuego.Gano">  Correcto, acerto luego de {{miJuego.cont}} intentos!  </h3>
+            <p [hidden]="miJuego.Gano">   </p>
+      </div>
+    </div>
+  </div>
+</div>

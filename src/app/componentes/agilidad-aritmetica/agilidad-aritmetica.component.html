@@ -1,0 +1,21 @@
+
+  <!-- <h1> {{miJuego.Nombre}}</h1> -->
+  <br><br><br><br>
+  <input type="text"  name="NumIngresado" [(ngModel)]="juegoAritm.primerNumero" />  
+  <input type="text"  name="operador" [(ngModel)]="juegoAritm.operador" />  
+  <input type="text"  name="NumIngresado2" [(ngModel)]="juegoAritm.segundoNumero" />  
+  <button class= "btn btn-success" (click)="juegoAritm.GenerarNuevo()">Nuevo</button> 
+  <br>
+  <div [hidden]="!juegoAritm.NumeroGenerador" >
+  <input type="text"  name="Resultado" [(ngModel)]="juegoAritm.resultado" />  
+  <button class= "btn btn-success" (click)="juegoAritm.Resultado()">Resultado</button>
+</div> 
+<h3  [hidden]="!juegoAritm.Gano">  Correcto, acerto luego de {{juegoAritm.cont}} intentos!  </h3>
+  <!-- <button (click)="miJuego.Verificar()">Verificar</button> -->
+<!--   
+  <p [hidden]="miJuego.Gano"> No Gano  </p>
+  <p [hidden]="!miJuego.Gano">  Gano   </p>
+     -->
+
+
+  <!-- <h1> {{miJuego.NumeroIngresado}}</h1> -->

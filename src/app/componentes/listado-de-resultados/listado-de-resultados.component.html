@@ -1,0 +1,8 @@
+<div *ngFor="let juego Of ListadoDeResultados" >
+   {{juego.Nombre}}  
+  {{juego.Jugador}}   
+  <p *ngIf="juego.Gano" > Gano!!       </p>
+  <p *ngIf="!juego.Gano"> Perdio!!       </p>
+
+
+</div>
