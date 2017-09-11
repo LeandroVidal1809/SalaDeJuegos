@@ -39,7 +39,7 @@ export class ServicesListadoService {
    juego4.Gano=false;
    miArray.push(juego4);
    juego5.Nombre="Nombre4";
-   juego5.Jugador="Jugador4";
+   juego5.Jugador="Jugador7";
    juego5.Gano=false;
    miArray.push(juego5);
    juego6.Nombre="Nombre5";
