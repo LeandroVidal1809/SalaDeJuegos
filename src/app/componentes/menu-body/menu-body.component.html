@@ -1,5 +1,7 @@
-<p>
-  menu-body works!
-</p>
-
-<h1>  BIENVENIDOS A LA SALA DE JUEGOS!</h1>
+<div> <li ><button class="btn btn-success" (click)="OpcionMenu('menuBody')">Menu</button></li><br><br><br>
+<li ><button class="btn btn-success" (click)="OpcionMenu('adivina')">Adivina el Numero</button></li><br><br>
+<li ><button class="btn btn-success" (click)="OpcionMenu('agilidad')">Agilidad Aritmetica</button></li>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>

@@ -4,6 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {ServicesListadoService} from './servicios/services-listado.service';
+import { RuteandoModule } from './Rutas.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 //import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -14,17 +19,18 @@ import { MenuComponent } from './componentes/menu/menu.component';
 import { MenuBodyComponent } from './componentes/menu-body/menu-body.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
 import { MenuDeListadoComponent } from './componentes/menu-de-listado/menu-de-listado.component';
+import { PrincipalComponent } from './componentes/principal/principal.component';
 
-//mport { JuegoComponent } from 'Clase/juego/juego.component';
-let miRuteo=[
-  {path:'adivina',component:AdivinaElNumeroComponent},
-  {path:'agilidad',component:AgilidadAritmeticaComponent},
-  {path:'',component:LoginComponent},
-  {path:'menu',component: MenuComponent},
-  {path:'menuBody',component: MenuBodyComponent},
-  {path:'ListadoDeResultados',component: ListadoDeResultadosComponent},
-  {path:'MenuDeListado',component: MenuDeListadoComponent}
-          ];
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyDPOiGX5gFNmxcGvsDgkH_uH_DAAKL9H-w",
+  authDomain: "usuariolabo.firebaseapp.com",
+  databaseURL: "https://usuariolabo.firebaseio.com",
+  projectId: "usuariolabo",
+  storageBucket: "usuariolabo.appspot.com",
+  messagingSenderId: "113033543860"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,14 +40,19 @@ let miRuteo=[
     MenuComponent,
     MenuBodyComponent,
     ListadoDeResultadosComponent,
-    MenuDeListadoComponent
+    MenuDeListadoComponent,
+    PrincipalComponent
    // JuegoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(miRuteo),
-    HttpModule
+    RuteandoModule,
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
+
   ],
   providers: [ServicesListadoService ],
   bootstrap: [AppComponent]

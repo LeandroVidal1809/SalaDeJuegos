@@ -16,21 +16,5 @@ export class MenuComponent implements OnInit {
   }
 
 
-   OpcionMenu(Opcion:string)
-     {
-       switch(Opcion)
-      {
-         case 'agilidad':
-         this.router.navigate(['/agilidad']);
-         break;
-         case 'adivina':
-         this.router.navigate(['/adivina']);     
-         break;
-         case 'menuBody':
-         this.router.navigate(['/menuBody']);     
-         break;
-       }
-
-    }
-
+   
 }
