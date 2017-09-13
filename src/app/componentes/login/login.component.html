@@ -23,10 +23,12 @@
 			<div>
 				<a href="#">Lost your password?</a>
 				<button class="btn btn-success" (click)="Entrar()">Entrar</button> <!--chequeo con el f12, en la consola!-->
+				<button class="btn btn-success" (click)="registrar()">Registrar</button> <!--chequeo con el f12, en la consola!-->
+				<button class="btn btn-success" (click)="UserValido()">UserValido</button>
 				<a href="#">Register</a>
 			</div>
-			<h1 [hidden]="!ingreso"> Ingreso Exitosamente</h1>
-			<h1 [hidden]="ingreso"> no Logueado</h1>
+			<h3 [hidden]="!ingreso"  > Ingreso Exitosamente</h3>
+			<h3 [hidden]="ingreso"> {{Mensaje}}</h3>
 		</form><!-- form -->
 
 	</section><!-- content -->

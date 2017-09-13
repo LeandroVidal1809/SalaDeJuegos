@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule} from 'angularfire2';
+import { AngularFireAuthModule,AngularFireAuth, } from 'angularfire2/auth';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
-
 import {firebase}  from 'firebase/database';
 
 @Component({
@@ -12,29 +11,56 @@ import {firebase}  from 'firebase/database';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  Usuario:String = "";
-  Pass:String = "";
+  Usuario:string = "";
+  Pass:string = "";
   ingreso:boolean=false;
-  users: FirebaseListObservable<any[]>;  
+  Mensaje:string="";
+  routestring:string;
+  retorna:string;
+  prom:firebase
   constructor(private Route:ActivatedRoute,
-    private router: Router,db: AngularFireDatabase) {
-      this.users=db.list('/usuariolabo');
-      this.users.push("otro");
+              public router: Router,
+              private _auth:AngularFireAuth) {}
+              ngOnInit() {
+              }
+            
 
-     }
+ async Entrar()
+  {
+  var result = await this._auth.auth.signInWithEmailAndPassword(this.Usuario,this.Pass)
+                        .catch(function(error) {         
+                            alert(error.message);
+                            //console.log(error);
+                            
+                        });
+
+                      if(result!=undefined){
+                        this.router.navigate(['/Principal']);
+                      }
+
+  }
+
+UserValido()
+{
+  this.Usuario="Leandro@Leandro.com";
+  this.Pass="Leandro123";
   
-  Entrar()
-  {
-  if(this.Usuario=='admin@admin.com' && this.Pass=='123'){
-   this.ingreso=true;
-   this.router.navigate(['/Principal']);     
-  }
-  else
-  {
-    this.ingreso=false;
-  }
-}
-  ngOnInit() {
-  }
+  
 
+}
+
+
+async registrar(email:string,password:string)
+{
+try{
+const result = await this._auth.auth.createUserWithEmailAndPassword(this.Usuario,this.Pass);
+this.Mensaje=this.Usuario + " Fue ingresado Exitosamente!"
+}
+catch(e){
+console.error(e);
+this.Mensaje=e;
+}
+
+}
+ 
 }
